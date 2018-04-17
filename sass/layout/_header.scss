@@ -1,0 +1,24 @@
+/* -------------------------------------------
+Header styles here */
+.header{
+    @include size(100%, 400px);
+
+    background: $main-color2 url("../images/header-bg.png") repeat-x center bottom;
+    @include display-center;
+    @include flex-direction(column);
+
+    .header-logo{
+        margin-top: -41px;
+        margin-bottom: 7px;
+        img{
+            max-width: 166px;
+        }
+    }
+
+    h5{
+        font-family: $roboto;
+        color: $white;
+        margin: 0;
+        text-transform: none;
+    }
+}

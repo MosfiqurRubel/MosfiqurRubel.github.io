@@ -1,0 +1,93 @@
+/* -------------------------------------------
+Calendar styles here */
+.calendar{
+    @include size(260px, 100%);
+    border: 1px solid $border-color;
+    padding: 18px 11px;
+    @include box-shadow(0 0 10px rgba($black, 0.2));
+    @include border-radius(4px);
+
+    .w-100{
+        width: 100%;
+        margin-bottom: 14px;
+
+        button{
+            height: 30px;
+            background: none;
+            color: $border-color;
+            padding: 0;
+        }
+
+        tr{
+            td{
+                font-size: $font-size-base;
+                text-align: center;
+            }
+        }
+    }
+
+    table{
+        tr{
+            &:hover{
+                background: none;
+            }
+
+            &.days{
+                td{
+                    padding: 4px;
+
+                    &:hover,
+                    &.current-day{
+                        .day{
+                            background-color: $link-color;
+                            color: $white;
+                            cursor: pointer;
+                            @include border-radius(100%);
+                        }
+                    }
+
+                    &:hover{
+                        .day{
+
+                            &.day-not-in-month{
+                                background-color: rgba($link-color, 0.5);
+                                color: rgba($white, 0.5);
+                                cursor: default;
+                            }
+                        }
+                    }
+                }
+            }
+            td{
+                font-family: $montserrat;
+                text-align: center;
+                border: none;
+                padding: 0;
+
+                &.weekday{
+                    @extend .bold;
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    padding-bottom: 8px;
+                }
+
+                .day{
+                    @include size(24px, 24px);
+                    line-height: 24px;
+                    font-size: 11px;
+                    color: $lbl-color;
+
+                    &.day-not-in-month{
+                        color: rgba($lbl-color, 0.5);
+                    }
+                }
+            }
+
+            &:last-child{
+                td{
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}

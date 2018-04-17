@@ -1,0 +1,50 @@
+/**
+* --------------------------------------------------------------------------------------------------------
+* shared with all .scss files.
+* --------------------------------------------------------------------------------------------------------
+*/
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/flexbox";
+
+@import "base/normalize";
+@import "base/typography";
+
+@import "helpers/helpers";
+
+@import "components/buttons";
+@import "components/checkboxes";
+@import "components/radiobutton";
+@import "components/togglebutton";
+@import "components/selectboxes";
+@import "components/forms";
+@import "components/icons";
+@import "components/tab";
+@import "components/accordion";
+@import "components/dropdown";
+@import "components/popup";
+@import "components/loader";
+@import "components/notify";
+@import "components/tooltips";
+@import "components/paginaiton";
+@import "components/progress-bar";
+@import "components/ratings";
+@import "components/calendar";
+@import "components/navigation";
+@import "components/datetime";
+@import "components/table";
+@import "components/slider";
+
+@import "layout/common";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+
+@import "pages/home";
+@import "pages/contact";
+@import "pages/signin";
+@import "pages/error";
+@import "pages/guideline";
+
+@import "themes/admin";
+@import "themes/dashboard";

@@ -1,0 +1,112 @@
+/* -------------------------------------------
+Forms styles here */
+
+.inputs {
+    position: relative;
+
+    input {
+        @include size(100%, 42px);
+        font-family: $roboto;
+        font-size: $font-size-base;
+        color: $black;
+        border: 1px solid $border-color;
+        padding: 0 20px;
+        @include box-shadow(0 0 20px 0 rgba($black, 0.05));
+        @include border-radius(4px);
+
+        &:focus,
+        &.focus {
+            background-color: $white;
+            border-color: #929ae2;
+            outline: none;
+        }
+
+        &.error-field-error {
+            border-color: $error;
+            @include box-shadow(0 0 20px rgba($error, 0.05));
+        }
+
+        &.validation-success{
+            border-color: $success;
+            @include box-shadow(0 0 20px rgba($success, 0.05));
+        }
+    }
+
+    .success-tick{
+        @include absolute(10px, 10px);
+        .fa{
+            color: $success;
+        }
+    }
+}
+
+.form-row {
+    margin-bottom: $gutter-width;
+    position: relative;
+
+    label {
+        display: block;
+        font-family: $roboto;
+        font-size: 13px;
+        color: $lbl-color;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+    }
+}
+
+.search{
+    width: 100%;
+    position: relative;
+
+    label{
+        @include absolute(10px, auto, auto, 18px);
+        font-weight: 700;
+    }
+
+    .sr-only{
+        position: absolute;
+        @include size(1px, 1px);
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+    }
+
+    input{
+        @include size(100%, 38px);
+        font-family: $roboto;
+        font-size: $font-size-base;
+        color: $black;
+        border: none;
+        padding: 0 20px 0 44px;
+    }
+
+    #search-clear{
+        @include size(auto, auto);
+        font-size: 16px;
+        color: $lbl-color;
+        text-decoration: none;
+        padding: 0;
+        @include absolute(10px, 13px);
+
+        &:hover{
+            background: none;
+        }
+    }
+}
+
+.form-dropdown{
+    @include size(240px, 100%);
+    border: 1px solid $border-color;
+    @include box-shadow(0 0 10px rgba($black, 0.2));
+    @include border-radius(4px);
+
+    .form-dropdown-body{
+        height: calc(100% - 44px);
+        padding: 25px 20px 14px;
+    }
+}
+
+

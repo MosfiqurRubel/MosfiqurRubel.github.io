@@ -1,0 +1,53 @@
+/* -------------------------------------------
+Accordion styles here */
+.accordion{
+
+}
+
+.accordion-section-title{
+    @include size(100%, 30px);
+    display: block;
+    font-family: $montserrat;
+    color: $dark-blue;
+    text-decoration: none;
+    position: relative;
+
+    &:before{
+        font: normal normal normal 11px/1 FontAwesome;
+        content: "\f078";
+        @include absolute(5px, auto, auto, -29px);
+    }
+
+    &.active,
+    &:hover,
+    &:focus{
+        color: $link-color;
+    }
+
+    &.active{
+        &:before{
+            content: "\f077";
+        }
+    }
+}
+
+.accordion-section{
+    margin-bottom: 30px;
+
+    .accordion-section-content{
+        display: none;
+        padding-top: 10px;
+        padding-bottom: 27px;
+    }
+
+    .button-row{
+        @include display-flex;
+        @include flex-wrap(wrap);
+        padding-top: 8px;
+
+        button{
+            width: auto;
+            margin-right: $gutter-width;
+        }
+    }
+}

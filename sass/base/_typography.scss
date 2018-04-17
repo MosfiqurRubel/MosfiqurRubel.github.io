@@ -1,0 +1,80 @@
+/* -------------------------------------------
+Typography styles here */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,300,400,500,700');
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+// Heading
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-family: $montserrat;
+    margin: 0 0 $gutter-width;
+}
+
+h1, .h1{
+    font-size: 32px;
+    line-height: 50px;
+    font-weight: 700;
+    color: $dark-blue;
+    text-transform: capitalize;
+}
+
+h2, .h2{
+    font-size: 26px;
+    line-height: 48px;
+    font-weight: 700;
+    color: $link-color;
+}
+
+h3, .h3{
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 400;
+    color: $dark-blue;
+}
+
+h4, .h4{
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    color: $dark-blue;
+}
+
+h5, .h5{
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+    color: $dark-blue;
+    text-transform: capitalize;
+}
+
+h6, .h6{
+    font-size: $font-size-base;
+    line-height: 24px;
+    font-weight: 400;
+    color: $dark-blue;
+}
+
+p {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $dark-blue;
+    margin: $gutter-width 0;
+}
+
+ul{
+    @include list-style;
+}
+
+a{
+    text-decoration: none;
+
+    &:hover,
+    &:focus{
+        color: $link-color;
+    }
+}

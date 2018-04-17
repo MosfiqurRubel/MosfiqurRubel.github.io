@@ -1,0 +1,56 @@
+/* -------------------------------------------
+Tab styles here */
+.tabs{
+    .tab-links{
+        @include list-style;
+        @include display-flex;
+        @include flex-wrap(wrap);
+        border-bottom: 2px solid $border-color;
+
+        li{
+            margin: 0 20px;
+
+            a{
+                height: 56px;
+                font-family: $montserrat;
+                color: $lbl-color;
+                text-transform: capitalize;
+                text-decoration: none;
+                position: relative;
+                @include display-center;
+
+                &:after{
+                    content: "";
+                    @include size(100%, 2px);
+                    @include absolute(100%, auto, auto, 0);
+                }
+
+                &:hover,
+                &:focus{
+                    color: $dark-blue;
+                }
+            }
+
+            &.active{
+                a{
+                    color: $dark-blue;
+
+                    &:after{
+                        background-color: $link-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .tab-content{
+        padding: 48px 29px;
+
+        .tab{
+            display: none;
+            &.active{
+                display: block;
+            }
+        }
+    }
+}
