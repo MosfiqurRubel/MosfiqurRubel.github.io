@@ -1,0 +1,122 @@
+/* -------------------------------------------
+Table styles here */
+.data-table{
+    width: 100%;
+}
+
+table{
+    width: 100%;
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    &.table-bordered{
+        border: 1px solid $border-color;
+
+        thead{
+            th{
+                border-bottom: 2px solid $border-color;;
+            }
+        }
+
+        th, td{
+            padding: 10px 18px;
+            border: 1px solid $border-color;
+        }
+    }
+
+    tbody{
+        tr{
+            &:hover,
+            &.active {
+                background-color: #f8f8f8;
+
+                .table-action{
+                    visibility: visible;
+                    background: none;
+                    color: #b1b9c4;
+                    @include box-shadow(none);
+
+                    &:before {
+                        //color: $link-color;
+                    }
+
+                    &:hover{
+                        color: #b1b9c4;
+                        &:before {
+                            color: #b1b9c4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    tr{
+        th, td{
+            display: table-cell;
+            padding: 10px $gutter-width;
+            font-size: 13px;
+            text-align: left;
+            border-top: 1px solid $border-color;
+
+            &.selector-column{
+                width: 50px;
+                .control{
+                    padding-left: 20px;
+                }
+
+                &.selected{
+                    border-left: 1px solid $link-color;;
+                }
+            }
+
+            &.status{
+                width: 100px;
+            }
+            &.actions-column{
+                width: 50px;
+            }
+
+            .checkbox-wrap{
+                margin-bottom: 0;
+
+                .checkbox {
+                    @include size(16px, 16px);
+                }
+            }
+
+
+            .control--checkbox {
+                .control__indicator {
+                    @include size(16px, 16px);
+                    @include border-radius(2px);
+
+                    &:after{
+                        @include size(4px, 8px);
+                        @include absolute(4px, auto, auto, 7px);
+                    }
+                }
+            }
+        }
+
+        th{
+            color: $lbl-color;
+            text-transform: capitalize;
+            border-top: none;
+        }
+
+        td{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-weight: 400;
+            color: $main-color2;
+        }
+
+        &:last-child{
+            td{
+                border-bottom: 1px solid $border-color;
+            }
+        }
+    }
+}

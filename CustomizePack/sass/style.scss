@@ -1,0 +1,56 @@
+/**
+* -------------------------------------------------------------------------------------------------
+* shared with all .scss files.
+* -------------------------------------------------------------------------------------------------
+*/
+
+@import "compass";
+@import "compass/css3"; // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/support"; // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "spr/*.png";
+// helpers
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/flexbox";
+@import "helpers/grid";
+// Base
+@import "base/normalize";
+@import "base/typography";
+@import "helpers/helpers";
+// Components
+@import "components/buttons";
+@import "components/checkboxes";
+@import "components/radiobutton";
+@import "components/togglebutton";
+@import "components/selectboxes";
+@import "components/forms";
+@import "components/icons";
+@import "components/tab";
+@import "components/accordion";
+@import "components/dropdown";
+@import "components/popup";
+@import "components/loader";
+@import "components/notify";
+@import "components/tooltips";
+@import "components/paginaiton";
+@import "components/progress-bar";
+@import "components/ratings";
+@import "components/calendar";
+@import "components/navigation";
+@import "components/datetime";
+@import "components/table";
+@import "components/slider";
+// Layout
+@import "layout/common";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+// Pages
+@import "pages/home";
+@import "pages/contact";
+@import "pages/signin";
+@import "pages/error";
+@import "themes/admin";
+@import "themes/dashboard";

@@ -1,0 +1,97 @@
+/* -------------------------------------------
+Toggle Button styles here */
+.toggle-container{
+    @include display-flex;
+    @include align-items(center);
+    margin-bottom: 20px;
+
+    .toggle-text{
+        margin-left: 15px;
+    }
+}
+.toggle-button{
+    position: relative;
+    @include size(50px, 24px);
+
+    .toggle-text{
+        right: -50px;
+    }
+
+    label,
+    span{
+        @include absolute(0, 0, 0, 0);
+        @include transition-duration(0.2s);
+    }
+    label{
+        background-color: #dde2ec;
+        margin-bottom: 0;
+        cursor: pointer;
+        @include box-shadow(0 0 0 1px #dde2ec);
+        @include border-radius(20px);
+
+        // &:before,
+        // &:after{
+        //     @include absolute(0);
+        //     width: 34px;
+        //     line-height: 20px;
+        //     color: $white;
+        //     text-align: center;
+        // }
+
+        // &:before {
+        //     left: 0;
+        //     font-size: 11px;
+        //     content: 'ON';
+        // }
+        // &:after {
+        //     right: 0;
+        //     font-size: 10px;
+        //     content: 'OFF';
+        // }
+
+        span {
+            z-index: 1;
+            @include size(20px, 20px);
+            margin: 2px 0 0 1px;
+            background-color: $white;
+            @include box-shadow(0 0 0 1px $white);
+            @include border-radius(50%);
+        }
+    }
+
+
+    input[type=checkbox]{
+        position: absolute;
+        @include opacity(0);
+    }
+
+    input:checked+label {
+        background-color: $link-color;
+        @include box-shadow(0 0 0 1px $link-color);
+    }
+
+    input:checked+label span {
+        transform: translateX(27px);
+    }
+
+    input:disabled+label {
+        cursor: default;
+        @include opacity(0.6);
+    }
+
+    input:disabled:checked+label{
+        background-color: $link-color;
+        @include box-shadow(0 0 0 1px $link-color);
+        @include opacity(0.6);
+    }
+
+    input:disabled:checked+label span{
+        transform: translateX(27px);
+        @include opacity(0.6);
+    }
+
+    input:disabled+label span {
+        transform: translateX(0);
+    }
+}
+
