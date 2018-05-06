@@ -1,0 +1,44 @@
+/**
+* Color Variables
+* The variables set here serve only as example of how you can use SASS variables
+* to centralize and control frequently used styles more easily. Here you will
+* find variables for colors, fonts and the global gutter width.
+*/
+
+$white: #ffffff;
+$black: #000000;
+$dark-blue: #2b2c32;
+$modarate-blue: #3e4589;
+$grayish: #6d7a8d;
+$grayish-light: #d8dee6;
+$grayish-blue: #7d89a1;
+$dark-grayish-blue: #778297;
+$disabled-color: #c8cbe1;
+$disabled-color-cncl: #d8dce3;
+$main-color1: #474f9c;
+$main-color2: #2a2c44;
+$text-color: #adb6c1;
+$lbl-color: #828d9b;
+$link-color: #6c76d8;
+$border-color: #d6d9e1;
+$info-color: #6c76d8;
+$info-color-dark: #5f68be;
+// messages color
+$success: #56b580;
+$success-dark: #4c9f70;
+$warning: #e6b56f;
+$warning-dark: #daac69;
+$error: #fc6666;
+$error-dark: #dd5a5a;
+// Fonts
+$opensans: 'Open Sans',
+sans-serif;
+$montserrat: 'Montserrat',
+sans-serif;
+$font-size-base: 14px;
+$line-height-base: 24px;
+$gutter-width: 15px;
+// Breakpoint
+$smart-phone: 767px;
+$ipad: 1024px;
+$laptop: 1366px;

@@ -1,0 +1,142 @@
+Gulp:
+    ? ruby -v
+    ? gem update --system
+    ? gem -v
+    ? node -v
+    ? npm -v
+    ? npm install -g bower
+    ? bower -v
+    ? npm install -g gulp
+    ? gulp -v
+
+    ? gulp-project/app/ -> css images js sass fonts index.html
+    ? gulp-project/ -> touch readme.md .gitignore---------Enter
+    ? gulp-project/ app/ -> bower init
+    ? gulp-project/ app/ -> bower install jquery bootstrap fontawesome --save
+    ? gulp-project/ app/ -> bower list
+    ? gulp-project/ app/ -> bower list --paths
+    Ruby setup for compass:
+        ? gulp-project/ app/ ->
+        ? gem install compass sass
+        ? compass -v
+        ? gem list
+        ? gem install breakpoint
+        Installing Gulp:
+        ? gulp-project/ ->
+        ? node -v
+        ? gulp -v
+        ? npm init
+        ? npm install gulp --save-dev
+        ? touch gulpfile.js
+        Setup Gulpfile:
+            ? npm install gulp-plumber gulp-concat gulp-uglify browser-sync gulp-compass 
+              gulp-autoprefixer del gulp-rename gulp-imagemin gulp-livereload --save-dev
+
+            Finally Run:
+            ? gulp-------enter for enjoy!!!
+
+            ---------------------------------------------------------------------------------
+/*---------- Declare gulp variables ----------*/
+
+    var gulp            = require('gulp'),
+        uglify          = require('gulp-uglify'),
+        browserSync     = require('browser-sync'),
+        reload          = browserSync.reload,
+        compass         = require('gulp-compass'),
+        plumber         = require('gulp-plumber'),
+        imagemin        = require('gulp-imagemin'),
+        rename          = require('gulp-rename');
+
+/*---------- Tasks ----------*/
+
+var concat = require('gulp-concat');
+ 
+gulp.task('scripts', function() {
+  return gulp.src(['./lib/file3.js', './lib/file1.js', './lib/file2.js'])
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('./dist/'));
+});
+
+//Scripts
+gulp.task('scripts', function() {
+    gulp.src(['app/js/**/*.js', '!app/js/**/*.min.js'])
+        .pipe(rename({suffix:'.min'}))
+        .pipe(plumber())
+	.pipe(concat('all.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('app/js'))
+        .pipe(reload({stream:true}));
+});
+
+// Compass
+gulp.task('compass', function(){
+  gulp.src('app/sass/style.scss')
+        .pipe(plumber())
+        .pipe(compass({
+            config_file: './config.rb',
+            css: 'app/css',
+            sass: 'app/sass',
+            image: 'app/images',
+            require: ['breakpoint']
+        }))
+
+      .pipe(gulp.dest('app/css/'))
+      .pipe(reload({stream:true}));
+});
+
+// HTML Task
+gulp.task('html', function(){
+    gulp.src('app/**/*.html')
+        .pipe(reload({stream:true}));
+});
+
+// Image Task
+gulp.task('image', function(){
+    gulp.src('images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('app/images/'));
+});
+
+// Browser-Sync Tasks
+gulp.task('browser-sync', function(){
+    browserSync({
+        server:{
+            baseDir: "./app/"
+        }
+    });
+});
+
+/*---------- Build Tasks ----------*/
+    // Clear out all files and folders from build folder
+    // gulp.task('build:cleanfolder', function(cb){
+    //     del([
+    //         'build/**'
+    //     ], cb);
+    // });
+
+    // Task to create build directory for all files
+    // gulp.task('build:copy', ['build:cleanfolder'], function(){
+    //     return gulp.src('app/**/*')
+    //     .pipe(gulp.dest('build/'));
+    // });
+
+    // Task to remove unwanted build files
+    // List all files and directories here that you don't want to include
+    // gulp.task('build:remove', ['build:copy'], function(cb){
+    //     del([
+    //         'build/sass/',
+    //         'build/js/!(*.min.js)'
+    //     ], cb);
+    // });
+
+    // gulp.task('build', ['build:copy', 'build:remove']);
+
+/*---------- Environements Tasks ----------*/
+    gulp.task('watch', function(){
+        gulp.watch('app/js/**/*.js',['scripts']);
+        gulp.watch('app/sass/**/*.scss', ['compass']);
+        gulp.watch('app/**/*.html', ['html']);
+    });
+
+    // Default Task
+    gulp.task('default',['scripts', 'compass', 'html', 'browser-sync', 'watch']);            

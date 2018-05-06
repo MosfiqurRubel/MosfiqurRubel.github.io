@@ -1,0 +1,91 @@
+/* -------------------------------------------
+Select box styles here */
+
+.select-box {
+    @include size(100%, 42px);
+    border: 1px solid $border-color;
+    padding: 0 20px;
+    position: relative;
+    @include box-shadow(0 0 20px 0 rgba($black, 0.05));
+    @include border-radius(4px);
+    .selected-text {
+        height: 100%;
+        font-family: $opensans;
+        font-size: $font-size-base;
+        color: $black;
+        @include display-flex;
+        @include align-items(center);
+        text-decoration: none;
+        position: relative;
+        &:after {
+            font: normal normal normal 11px/1 FontAwesome;
+            content: "\f078";
+            color: $lbl-color;
+            @include absolute(50%, 0);
+            @include translateY(-50%);
+        }
+        &.selected-text-lbl {
+            color: $lbl-color;
+        }
+    }
+    &:hover {
+        border-color: $link-color;
+        .dropdown-menu {
+            display: block;
+            margin-top: 3px;
+        }
+    }
+    &.open {
+        border-color: $link-color;
+        .selected-text,
+        .search-choices {
+            &:after {
+                content: "\f077";
+                color: $link-color;
+            }
+        }
+    }
+}
+
+.search-choices {
+    height: 100%;
+    @include display-flex;
+    @include align-items(center);
+    position: relative;
+    &:after {
+        font: normal normal normal 11px/1 FontAwesome;
+        content: "\f078";
+        color: $lbl-color;
+        @include absolute(14px, -7px);
+    }
+    li {
+        height: 26px;
+        margin-right: 5px;
+        border: 1px solid $border-color;
+        padding: 0 9px;
+        @include display-center;
+        @include border-radius(2px);
+        a {
+            font-family: $opensans;
+            font-size: 12px;
+            color: $dark-blue;
+            font-weight: 500;
+            .fa {
+                font-size: 12px;
+                color: $lbl-color;
+                margin-left: 3px;
+            }
+            &:hover {
+                .fa {
+                    color: $link-color;
+                }
+            }
+        }
+    }
+}
+
+.checkbox {
+    &.hover {
+        border-color: $link-color;
+    }
+}

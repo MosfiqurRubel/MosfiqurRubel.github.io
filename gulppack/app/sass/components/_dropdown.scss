@@ -1,0 +1,131 @@
+/* -------------------------------------------
+Dropdown styles here */
+.dropdown-menu{
+    display: none;
+    width: 100%;
+    min-height: 178px;
+    @include scroller;
+    @include list-style;
+    @include absolute(100%, 0);
+    background-color: $white;
+    z-index: 999;
+    padding: 5px 0;
+    @include border-radius(4px);
+    @include box-shadow(0 1px 5px 1px rgba($black, 0.3));
+
+    li{
+        height: 30px;
+        @include display-flex;
+        @include align-items(center);
+        @include flex-direction(column);
+        a{
+            @include size(100%, 100%);
+            font-size: $font-size-base;
+            font-weight: 400;
+            color: $black;
+            text-decoration: none;
+            text-transform: capitalize;
+            padding: 0 17px;
+            @include display-flex;
+            @include align-items(center);
+
+            &:hover,
+            &.hover{
+                background-color: $link-color;
+                color: $white;
+            }
+        }
+        // &:first-child{
+        //     a{
+        //         &:hover{
+        //             @include border-radius(4px 4px 0 0);
+        //         }
+        //     }
+        // }
+
+        // &:last-child{
+        //     a{
+        //         &:hover{
+        //             @include border-radius(0 0 4px 4px);
+        //         }
+        //     }
+        // }
+
+        &.selected{
+            a{
+                color: $text-color;
+                text-transform: uppercase;
+                background-color: #f0f2f6;
+                border-top: 1px solid #e8eaf1;
+            }
+        }
+
+        &.dropdown-search{
+            height: 38px;
+            padding: 0 2px;
+        }
+    }
+
+    &.dropdown-menu-search{
+        width: 100%;
+
+        li{
+            a{
+
+            }
+            &.selected-group{
+                height: auto;
+
+                > a{
+                    height: 30px;
+                    background-color: #f0f2f6;
+                    color: $lbl-color;
+                    text-transform: uppercase;
+                    padding-left: 20px;
+                }
+
+                .selected-group-menu{
+                    width: 100%;
+                    li{
+                        a{
+                            padding-left: 44px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.dropdown-menu-multiple{
+        li{
+            a{
+                padding-left: 44px;
+                color: $lbl-color;
+                position: relative;
+
+                .fa{
+                    font-size: 11px;
+                    @include absolute(10px, auto, auto, 20px);
+                }
+
+                &:hover{
+                    color: $white;
+                }
+            }
+
+            &.selected{
+                a{
+                    color: $black;
+                    border-top: none;
+                    text-transform: capitalize;
+                }
+            }
+
+            &.already-selected{
+                a{
+                    color: $black;
+                }
+            }
+        }
+    }
+}

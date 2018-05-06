@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--global',
+1 verbose cli   'gulp' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 verbose stack Error: EPERM: operation not permitted, mkdir 'C:\Program Files\Git\Users'
+4 verbose stack     at Error (native)
+5 verbose cwd H:\SASS\Gulp\gulppack\app
+6 error Windows_NT 10.0.15063
+7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--global" "gulp"
+8 error node v6.10.3
+9 error npm  v3.10.10
+10 error path C:\Program Files\Git\Users
+11 error code EPERM
+12 error errno -4048
+13 error syscall mkdir
+14 error Error: EPERM: operation not permitted, mkdir 'C:\Program Files\Git\Users'
+14 error     at Error (native)
+14 error  { Error: EPERM: operation not permitted, mkdir 'C:\Program Files\Git\Users'
+14 error     at Error (native)
+14 error   errno: -4048,
+14 error   code: 'EPERM',
+14 error   syscall: 'mkdir',
+14 error   path: 'C:\\Program Files\\Git\\Users' }
+15 error Please try running this command again as root/Administrator.
+16 verbose exit [ -4048, true ]

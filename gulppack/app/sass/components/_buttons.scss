@@ -1,0 +1,51 @@
+/* -------------------------------------------
+Button styles here */
+
+button{
+    @include common-button;
+
+    &.btn-normal{
+        min-width: 164px;
+        max-width: 164px;
+    }
+}
+
+.btn-group{
+    position: relative;
+    button{
+        width: calc(100% - 44px);
+        @include border-radius(4px 0 0 4px);
+        &.dropdown-btn{
+            width: 44px;
+            padding: 0;
+            background-color: #555dab;
+            color: $black;
+            @include border-radius(0 4px 4px 0);
+            &.disabled{
+                background: #cccfe6;
+                color: rgba($black, 0.3);
+            }
+        }
+    }
+
+    .btn-group-inner{
+        @include display-center;
+    }
+
+    &:hover{
+        .dropdown-menu{
+            display: block;
+        }
+    }
+}
+
+.btn-icon{
+    position: relative;
+    padding-left: 40px;
+    .fa{
+        font-size: 18px;
+        margin-right: 5px;
+        @include absolute(50%, auto, auto, 18px);
+        @include translateY(-50%);
+    }
+}
